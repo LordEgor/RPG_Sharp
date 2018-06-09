@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="RPG_Sharp.Entity" Collapsed="true">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAUCAAgAAAAgEAAAIAAAAAA=</HashCode>
+      <FileName>Entity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG_Sharp.EntityAlive">
+    <Position X="5.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAQCAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>EntityAlive.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Orientation="Left" Position="0.375" />
+  </Class>
+  <Class Name="RPG_Sharp.EntityEnemy">
+    <Position X="4.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAEAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>EntityEnemy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG_Sharp.EntityHero">
+    <Position X="6.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntityHero.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG_Sharp.EntityNotAlive">
+    <Position X="2.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntityNotAlive.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG_Sharp.EntityTreasure">
+    <Position X="1.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEQAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntityTreasure.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG_Sharp.EntityTree">
+    <Position X="3" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntityTree.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG_Sharp.Game">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>iAAAAoAAAACAgAZgAAACCIBgAAAAACBAAAEQAUkQoRA=</HashCode>
+      <FileName>Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG_Sharp.Program">
+    <Position X="11.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG_Sharp.RPGForm">
+    <Position X="7.5" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>ASAAAAAAACAAAAAAAACAAAACAAABAAAIAAAAAAAACAA=</HashCode>
+      <FileName>RPGForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG_Sharp.Properties.Resources" Collapsed="true">
+    <Position X="11.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG_Sharp.Properties.Settings">
+    <Position X="11.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -73,6 +73,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
@@ -84,14 +85,31 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\deathstar.png" />
+    <None Include="Resources\Enemy2.png" />
+    <None Include="Resources\Enemy3.png" />
+    <None Include="Resources\Enemy4.png" />
+    <None Include="Resources\Field.jpg" />
+    <None Include="Resources\game.wav" />
+    <None Include="Resources\Hero1.png" />
+    <None Include="Resources\Hero2.png" />
+    <None Include="Resources\Key.png" />
+    <None Include="Resources\loose.wav" />
+    <None Include="Resources\Treasure.png" />
+    <None Include="Resources\Tree.png" />
+    <None Include="Resources\win.wav" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Hero.png" />
-    <Content Include="TextFile1.txt" />
-    <Content Include="Treasure1.png" />
+    <None Include="Resources\Enemy0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Enemy1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hero0.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

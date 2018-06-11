@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace RPG_Sharp
 {
+    /// <summary>
+    /// Ключ от сундука Treasure
+    /// </summary>
     class EntityKey : EntityNotAlive
     {
         private bool isEnabledToDrop;

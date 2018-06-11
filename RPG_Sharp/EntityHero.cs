@@ -4,6 +4,9 @@ using System.Windows.Forms;
 
 namespace RPG_Sharp
 {
+    /// <summary>
+    /// Герой (играбельный персонаж)
+    /// </summary>
     class EntityHero : EntityAlive
     {
         public bool HasKey { get; set; }

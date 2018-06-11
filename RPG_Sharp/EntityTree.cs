@@ -3,6 +3,9 @@ using System.Drawing;
 
 namespace RPG_Sharp
 {
+    /// <summary>
+    /// Препятствие (дерево)
+    /// </summary>
     class EntityTree : EntityNotAlive
     {
         public override void SetImage()

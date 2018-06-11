@@ -3,6 +3,9 @@ using System.Windows.Forms;
 
 namespace RPG_Sharp
 {
+    /// <summary>
+    /// Родительский класс всех сущностей
+    /// </summary>
     abstract class Entity
     {
         protected static int n = 0;
@@ -32,7 +35,7 @@ namespace RPG_Sharp
         public string Message { get; protected set; }        
 
         /// <summary>
-        /// 
+        /// Внешний вид сущности (изображение)
         /// </summary>
         public PictureBox PictureBox {get; protected set; }
 

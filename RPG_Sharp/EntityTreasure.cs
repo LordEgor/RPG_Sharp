@@ -3,6 +3,9 @@ using System.Drawing;
 
 namespace RPG_Sharp
 {
+    /// <summary>
+    /// Сокровище (сундук и его содержимое)
+    /// </summary>
     class EntityTreasure : EntityNotAlive
     {
         private bool isOpened;
@@ -15,7 +18,6 @@ namespace RPG_Sharp
             set
             {
                 isOpened = value;
-#warning Поменять картинку для открытого сундука
                 this.PictureBox.Image = Image.FromFile(Environment.CurrentDirectory + @"\deathstar.png");
             }
         }

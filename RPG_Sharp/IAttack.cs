@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace RPG_Sharp
 {
-    
-        interface IAttack
-        {
-            int Damage { get; set; }
-            void Attack(EntityAlive opponent);
-        }
+    /// <summary>
+    /// Способность атаковать (наносить урон)
+    /// </summary>
+    interface IAttack
+    {
+        int Damage { get; set; }
+        void Attack(EntityAlive opponent);
+    }
     
 }

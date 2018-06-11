@@ -6,11 +6,11 @@ using System.Windows.Forms;
 
 namespace RPG_Sharp
 {
+    /// <summary>
+    /// Главная точка входа для приложения.
+    /// </summary>
     static class Program
     {
-        /// <summary>
-        /// Главная точка входа для приложения.
-        /// </summary>
         [STAThread]
         static void Main()
         {

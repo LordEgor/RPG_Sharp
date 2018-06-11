@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace RPG_Sharp
 {
+    /// <summary>
+    /// Одушевлённые сущности (герой/злодеи)
+    /// </summary>
     abstract class EntityAlive : Entity, IAttack
     {
         public virtual void Move(int x, int y)

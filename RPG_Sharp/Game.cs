@@ -8,7 +8,7 @@ namespace RPG_Sharp
     class Game  
     {
         /// <summary>
-        /// Объявление айдиоплэера 
+        /// Объявление аудиоплэера 
         /// </summary>
         private SoundPlayer Player;
 
@@ -119,14 +119,14 @@ namespace RPG_Sharp
                 }
             }
 
-            //сообщения об окончании игры в случаи смерти или 
+            // сообщения об окончании игры в случае смерти...
             else if(!Hero.IsAlive())
             {
                 Player = new SoundPlayer(Environment.CurrentDirectory+@"\loose.wav");
                 Player.Play(); 
                 if  (DialogResult.Retry==MessageBox.Show
-                    ("Ваш герой был злодейски убит силами противника(Впрочем,как всегда). Игра окончена.",
-                     "!ПОТРАЧЕНО!", MessageBoxButtons.RetryCancel))
+                    ("Ваш герой был злодейски убит силами противника (Впрочем, как всегда). Игра окончена.",
+                     "!!! П О Т Р А Ч Е Н О !!!", MessageBoxButtons.RetryCancel))
                 {
                     RestartGame();
                 }
@@ -134,13 +134,13 @@ namespace RPG_Sharp
                 {
                     Application.Exit();
                 }
-            }
+            }   // ...и в случае победы
             else if (EndGame())
             {
                 Player = new SoundPlayer(Environment.CurrentDirectory+@"\win.wav");
                 Player.Play(); 
-                if (DialogResult.Retry == MessageBox.Show("Вы победили всех!И забрали сокровище!", 
-                    "Победа!", MessageBoxButtons.RetryCancel))
+                if (DialogResult.Retry == MessageBox.Show("Вы победили всех! И нашли своё сокровище!", 
+                    "! П О Б Е Д А !", MessageBoxButtons.RetryCancel))
                 {
                     RestartGame();
                 }
@@ -211,7 +211,7 @@ namespace RPG_Sharp
 #endregion
 
         /// <summary>
-        /// Проверка наличия живых противков 
+        /// Проверка наличия живых противников 
         /// </summary>
         private void CheckAliveEnemiesCount()
         {
@@ -262,7 +262,7 @@ namespace RPG_Sharp
         }
 
         /// <summary>
-        /// Фунция подбора предметов(конкртено ключ,функционал можно расширить)
+        /// Фунция подбора предметов (конкртено ключ,функционал можно расширить)
         /// </summary>
         private void LootItems()
         {
@@ -302,7 +302,7 @@ namespace RPG_Sharp
         }
 
         /// <summary>
-        /// Проверка наличия противников на соседних с сущностью клетках
+        /// Проверка наличия других персонажей на соседних с сущностью клетках
         /// </summary>
         /// <returns> True - если противники есть, иначе - false </returns>
         private bool CheckforEnemies(EntityAlive entity)
@@ -320,7 +320,8 @@ namespace RPG_Sharp
             bool conformity=false;
 
             List<EntityAlive> EntitiesTemp = new List<EntityAlive>();
-            // Если метод вызван для героя
+
+            // Если метод вызван для Hero
             if (entity is EntityHero)
             { 
                 // Заполняем локальный список сущностей всеми противниками на карте
@@ -342,7 +343,7 @@ namespace RPG_Sharp
                     if (e.Location == Cells[i] && e.IsAlive())
                     {
                         conformity = true;
-                        // Если метод вызван для героя - дополнить список противников рядом
+                        // Если метод вызван для Hero - дополнить список противников рядом
                         if (entity is EntityHero)
                         {
                             EnemiesNear.Add(e as EntityEnemy);
@@ -382,7 +383,7 @@ namespace RPG_Sharp
 
 #region initialization
         /// <summary>
-        /// Инициализация препятствий(деревьев)
+        /// Инициализация препятствий (деревьев)
         /// </summary> 
         private void InitializationTree()
         {

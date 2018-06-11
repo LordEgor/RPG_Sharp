@@ -3,6 +3,9 @@ using System.Windows.Forms;
 
 namespace RPG_Sharp
 {
+    /// <summary>
+    /// Игровая форма
+    /// </summary>
     public partial class RPGForm : Form
     {
         private Game game;
@@ -14,9 +17,14 @@ namespace RPG_Sharp
             game = new Game(ref form);
         }
 
+        /// <summary>
+        /// Обработка совершённого по нажатию клавиши нового хода
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RPGForm_KeyDown(object sender, KeyEventArgs e)
         {
-            game.HandleKeyPress(e);     //Если нажаты стрелки
+            game.HandleKeyPress(e);
             Refresh();
             if (textBoxLog.Text.Length > 0)
             {

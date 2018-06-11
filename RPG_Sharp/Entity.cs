@@ -4,10 +4,13 @@ using System.Windows.Forms;
 namespace RPG_Sharp
 {
     /// <summary>
-    /// Родительский класс всех сущностей
+    /// Родительский класс всех объектов/сущностей
     /// </summary>
     abstract class Entity
     {
+        /// <summary>
+#warning /// Зачем это, пока не понял
+        /// </summary>
         protected static int n = 0;
 
         /// <summary>
@@ -15,9 +18,13 @@ namespace RPG_Sharp
         /// </summary>
         public string Name { get; set; }
 
-        private Point location;
         /// <summary>
-        /// Координаты левого верхнего угла
+        /// Координаты левого верхнего угла объекта
+        /// </summary>
+        private Point location;
+
+        /// <summary>
+        /// Положение объекта в пространстве
         /// </summary>
         public Point Location 
         {
@@ -40,7 +47,7 @@ namespace RPG_Sharp
         public PictureBox PictureBox {get; protected set; }
 
         /// <summary>
-        /// Выбор изображения 
+        /// Установка изображения сущности
         /// </summary>
         public virtual void SetImage()
         {
@@ -51,10 +58,15 @@ namespace RPG_Sharp
            
         }
 
+        /// <summary>
+        /// Игра, в которой участвует объект
+        /// </summary>
         protected Game Game;
+
         public Entity(Game game, string name)
         {
             PictureBox = new PictureBox();
+            this.SetImage();
             this.Game = game;
             this.Name = name;
             n++;

@@ -8,9 +8,13 @@ namespace RPG_Sharp
     /// </summary>
     class EntityTreasure : EntityNotAlive
     {
-        private bool isOpened;
         /// <summary>
         /// Открыт ли сундук
+        /// </summary>
+        private bool isOpened;
+
+        /// <summary>
+        /// True, если сундук закрыт
         /// </summary>
         public bool IsOpened
         { 
@@ -18,19 +22,28 @@ namespace RPG_Sharp
             set
             {
                 isOpened = value;
-                this.PictureBox.Image = Image.FromFile(Environment.CurrentDirectory + @"\deathstar.png");
+                SetImage();
             }
         }
+
         public override void SetImage()
         {
-            this.PictureBox.Image = Image.FromFile(Environment.CurrentDirectory + @"\Treasure.png");
-            this.PictureBox.BackColor = Color.Transparent;
+            if (!this.IsOpened)
+                this.PictureBox.Image = Properties.Resources.ResourceManager.GetObject("Treasure") as Image;
+            else
+                this.PictureBox.Image = Properties.Resources.ResourceManager.GetObject("deathstar") as Image;
+            //this.PictureBox.BackColor = Color.Transparent;
             base.SetImage();
         }
 
+        /// <summary>
+        /// Конструктор EntityTreasure
+        /// </summary>
+        /// <param name="game"></param>
         public EntityTreasure(Game game)
             : base(game, "Сундук")
         {
+            this.IsOpened = false;
             this.PictureBox.Name = "pbTreasure" + n.ToString();
         }
     }

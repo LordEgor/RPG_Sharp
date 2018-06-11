@@ -9,15 +9,29 @@ namespace RPG_Sharp
     /// </summary>
     class EntityHero : EntityAlive
     {
+        /// <summary>
+        /// Наличие у героя ключа.
+        /// True, если ключ есть
+        /// </summary>
         public bool HasKey { get; set; }
+
+        /// <summary>
+        /// Скин героя
+        /// </summary>
         public override void SetImage()
         {
-            this.PictureBox.BackgroundImage = Image.FromFile(Environment.CurrentDirectory + @"\Hero2.png");
+            this.PictureBox.Image = Properties.Resources.ResourceManager.GetObject("Hero1") as Image;
             base.SetImage();
         }
+
+        /// <summary>
+        /// Конструктор EntityHero
+        /// </summary>
+        /// <param name="game"></param>
         public EntityHero(Game game)
             : base(game, 250, 15, "Дарт Вейдер")
         {
+            SetImage();
             this.PictureBox.Name = "pbHero" + n.ToString();
             this.HasKey = false;
         }

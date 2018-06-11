@@ -12,22 +12,27 @@ namespace RPG_Sharp
     /// </summary>
     class EntityKey : EntityNotAlive
     {
+        /// <summary>
+        /// Ключ доступен для его сбора
+        /// </summary>
         private bool isEnabledToDrop;
         public bool IsEnabledToDrop 
         { 
             get { return isEnabledToDrop; }
             set
             {
-                if (value)
-                {
-                    this.PictureBox.Visible = true;
-                }
+                this.PictureBox.Visible = value;
                 isEnabledToDrop = value;
             }
         }
 
-
+        /// <summary>
+        /// Подобран ли ключ героем
+        /// </summary>
         private bool isObtainedByHero;
+        /// <summary>
+        /// True, если ключ у героя
+        /// </summary>
         public bool IsObtainedByHero 
         {
             get { return isObtainedByHero; }
@@ -44,13 +49,13 @@ namespace RPG_Sharp
 
         public override void SetImage()
         {
-            this.PictureBox.Image = Image.FromFile(Environment.CurrentDirectory + @"\Key.png");
+            this.PictureBox.Image = Properties.Resources.ResourceManager.GetObject("Key") as Image;
             base.SetImage();
-            this.PictureBox.Visible = false;
         }
 
         public EntityKey(Game game) : base(game, "Ключ")
         {
+            SetImage();
             IsEnabledToDrop = false;
             IsObtainedByHero = false;
             this.PictureBox.Name = "pbKey" + n.ToString();

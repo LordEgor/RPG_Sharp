@@ -8,12 +8,12 @@ namespace RPG_Sharp
     class Game  
     {
         /// <summary>
-        /// Объявление аудиоплэера 
+        /// Аудиоплэер
         /// </summary>
         private SoundPlayer Player;
 
         /// <summary>
-        /// Объявление героя
+        /// Наш герой!
         /// </summary>
         private EntityHero Hero;
         
@@ -23,14 +23,14 @@ namespace RPG_Sharp
         public RPGForm Form;
         
         /// <summary>
-        /// Объявление поля 
+        /// Объявление поля/пространства
         /// </summary>
         public PictureBox Field;
         
         /// <summary>
-        /// Объявление списка врагов 
+        /// Объявление списка иродов окоянных 
         /// </summary>
-        private List<EntityEnemy> Enemy;
+        private List<EntityEnemy> Enemies;
 
         /// <summary>
         /// Список противников рядом с героем
@@ -48,7 +48,7 @@ namespace RPG_Sharp
         private List<EntityTree> Tree;
         
         /// <summary>
-        /// Объявлене списка,в который войдут все сущности 
+        /// Объявлене списка, в который войдут все сущности 
         /// </summary>
         private List<Entity> Entities;
 
@@ -68,7 +68,9 @@ namespace RPG_Sharp
         /// Счетчик количества оставшихся в живых врагов
         /// </summary>
         private int EnemiesLeft;
+
 #region Key
+
         /// <summary>
         /// Обработка текущего хода игры
         /// </summary>
@@ -77,8 +79,8 @@ namespace RPG_Sharp
         {
             // Свитч:
             // Если нажат F - атака
-            // Если нажат пробел - поднять предмет
-            // Если нажаты стрелки или WASD- движение
+            // Если нажат Space - поднять предмет
+            // Если нажаты стрелки или WASD - движение
             // Иначе ничего не делать
 
             // Увеличивать ход только для шести кнопок действий
@@ -122,7 +124,7 @@ namespace RPG_Sharp
             // сообщения об окончании игры в случае смерти...
             else if(!Hero.IsAlive())
             {
-                Player = new SoundPlayer(Environment.CurrentDirectory+@"\loose.wav");
+                Player = new SoundPlayer(Properties.Resources.ResourceManager.GetObject("loose") as System.IO.Stream);
                 Player.Play(); 
                 if  (DialogResult.Retry==MessageBox.Show
                     ("Ваш герой был злодейски убит силами противника (Впрочем, как всегда). Игра окончена.",
@@ -137,7 +139,7 @@ namespace RPG_Sharp
             }   // ...и в случае победы
             else if (EndGame())
             {
-                Player = new SoundPlayer(Environment.CurrentDirectory+@"\win.wav");
+                Player = new SoundPlayer(Properties.Resources.ResourceManager.GetObject("win") as System.IO.Stream);
                 Player.Play(); 
                 if (DialogResult.Retry == MessageBox.Show("Вы победили всех! И нашли своё сокровище!", 
                     "! П О Б Е Д А !", MessageBoxButtons.RetryCancel))
@@ -207,8 +209,8 @@ namespace RPG_Sharp
                 Hero.Move(tempX, tempY);
             }
         }
-        
-#endregion
+
+#endregion Key
 
         /// <summary>
         /// Проверка наличия живых противников 
@@ -216,7 +218,7 @@ namespace RPG_Sharp
         private void CheckAliveEnemiesCount()
         {
             int KilledEnemies = 0;
-            foreach (var e in Enemy)
+            foreach (var e in Enemies)
             {
                 if (!e.IsAlive())
                 {
@@ -227,7 +229,7 @@ namespace RPG_Sharp
                     Key.Location = e.Location;
                 }
             }
-            EnemiesLeft = Enemy.Count - KilledEnemies;
+            EnemiesLeft = Enemies.Count - KilledEnemies;
 
             if (EnemiesLeft==0)
             {
@@ -240,9 +242,9 @@ namespace RPG_Sharp
         /// </summary>
         private void EnemiesThink()
         {
-            if (Enemy.Count > 0)
+            if (Enemies.Count > 0)
             {
-                foreach (var e in Enemy)
+                foreach (var e in Enemies)
                 {
                     if (e.IsAlive())
                     {
@@ -262,7 +264,7 @@ namespace RPG_Sharp
         }
 
         /// <summary>
-        /// Фунция подбора предметов (конкртено ключ,функционал можно расширить)
+        /// Фунция подбора предметов (конкртено ключа, функционал можно расширить)
         /// </summary>
         private void LootItems()
         {
@@ -325,7 +327,7 @@ namespace RPG_Sharp
             if (entity is EntityHero)
             { 
                 // Заполняем локальный список сущностей всеми противниками на карте
-                foreach (var e in Enemy)
+                foreach (var e in Enemies)
                 {
                     EntitiesTemp.Add(e);
                 }
@@ -356,7 +358,7 @@ namespace RPG_Sharp
         }
 
         /// <summary>
-        /// Генерация позиции для сущности
+        /// Генерация позиции для сущности на поле
         /// </summary>
         /// <param name="e"> Сущность </param>
         private void GetLocationForEntity(Entity entity)
@@ -409,10 +411,10 @@ namespace RPG_Sharp
             for (int i = 0; i < rand.Next(a,b+2); i++)
             {
                 // Инициализация противников
-                Enemy.Add(new EntityEnemy(this));
+                Enemies.Add(new EntityEnemy(this));
                 // Добавили в список всех сущностей последнего добавленного противника
-                Entities.Add(Enemy[Enemy.Count - 1]);
-                GetLocationForEntity(Enemy[Enemy.Count - 1]);
+                Entities.Add(Enemies[Enemies.Count - 1]);
+                GetLocationForEntity(Enemies[Enemies.Count - 1]);
             }
         }
 
@@ -443,31 +445,33 @@ namespace RPG_Sharp
         private void InitializationField()
         {
             int Width = 500;
-            int Height = 400;
+            int Height = 600;
             Field = new PictureBox();
 
             Field.Name = "pbField";
             Field.Location = new Point(0, 0);
-           // Field.BackgroundImage=Image.FromFile(Environment.CurrentDirectory + @"\Field.jpg");
-            Field.BackColor = Color.Tomato;
+            //Field.BackgroundImage = Properties.Resources.ResourceManager.GetObject("Field") as Image;
+            Field.BackColor = Color.Tomato; // Поле усеяно кровью несозревших помидорок!!!
             Field.Width = Width;
             Field.Height = Height;   
+
+            //TODO: Сделать ресайз лейблов и изменить их положение в зависимое от field.width
         }
 
         /// <summary>
-        ///  
+        ///  Инициализация ключа
         /// </summary>
         private void InitializationKey()
         {
             Key = new EntityKey(this);
             Entities.Add(Key);
-            Key.Location = new Point(-50, -50);
+            Key.Location = new Point(-50, -50); // Это типа ключ спрятан хехе
         }
-#endregion 
+#endregion initialization
 
-#region label
+#region labels
         /// <summary>
-        /// Обновления информации о герое   
+        /// Обновление информации о герое   
         /// </summary>
         private void UpdateLabelHeroInfo()
         {
@@ -475,29 +479,29 @@ namespace RPG_Sharp
                                 + "/" + Hero.HealthMaximum;
             Form.labelHeroInfo.Text += (Hero.HasKey) ? ". Есть ключ." : "";
         }
+
         /// <summary>
-        /// помощи игроку
+        /// Отображение помощи игроку
         /// </summary>
         private void LabelHelp()
         {
-            Form.labelHelp.Text = "Задача: Уничтожить всех врагов Дарта Вейдера в мире Майнкрафт,"+ Environment.NewLine
-                                + "Остаться в живых,поднять выпавший ключ," + Environment.NewLine
-                                + "              открыть сундук и забрать сокровища Майнкрафта!" + Environment.NewLine
+            Form.labelHelp.Text = "Задача: Уничтожить всех врагов Дарта Вейдера в мире Майнкрафт."+ Environment.NewLine
+                                + "Остаться в живых, поднять выпавший ключ, открыть сундук и забрать сокровища Майнкрафта!" + Environment.NewLine
                                 + "Передвижение Вейдера осуществляется с помощью стрелок или WASD" + Environment.NewLine
-                                + "F - атаковать " + Environment.NewLine
-                                + "Space - поднять ключ" + Environment.NewLine;
+                                + "F - атаковать" + Environment.NewLine
+                                + "Space - взять ключ" + Environment.NewLine;
         }
-#endregion
+#endregion labels
 
-#region game
+#region game launchers
         /// <summary>
-        /// запуск игры 
+        /// Запуск игры 
         /// </summary>
         private void StartGame()
         {
             InitializationField();
-           
-            Enemy = new List<EntityEnemy>();
+
+            Enemies = new List<EntityEnemy>();
             EnemiesNear = new List<EntityEnemy>();
             Treasure = new List<EntityTreasure>();
             Tree = new List<EntityTree>();
@@ -521,17 +525,20 @@ namespace RPG_Sharp
             //Добавление сгенерированных сущностей на поле
             for (int i = 0; i < Entities.Count; i++)
             {
-                Entities[i].SetImage();
+                //Entities[i].SetImage();
                 Field.Controls.Add(Entities[i].PictureBox);
             }
             Form.Controls.Add(Field);
 
             UpdateLabelHeroInfo();
+
+            // Воспроизведение музыки
+            PlayMusic();
         }
 
         
         /// <summary>
-        /// рестарт игры 
+        /// Рестарт игры 
         /// </summary>
         private void RestartGame()
         {
@@ -550,24 +557,25 @@ namespace RPG_Sharp
             LabelHelp();
             
             //Form.checkBoxMusic.CheckedChanged +=checkBoxMusic_CheckedChanged;
-            MusicCheck();
             rand = new Random();
 
             StartGame();
         }
+
         ////
         //private void checkBoxMusic_CheckedChanged(object sender, EventArgs e)
         //{
-        //    MusicCheck();
+        //    PlayMusic();
         //}
+
         /// <summary>
         /// Воспроизведение музыки 
         /// </summary>
-        private void MusicCheck()
+        private void PlayMusic()
         {
             //if (Form.checkBoxMusic.Checked)
             {
-                Player = new SoundPlayer(Environment.CurrentDirectory + @"\game.wav");
+                Player = new SoundPlayer(Properties.Resources.ResourceManager.GetObject("game") as System.IO.Stream);
                 Player.Play();
             }
             //else
@@ -579,12 +587,12 @@ namespace RPG_Sharp
         /// <summary>
         /// Условие окончания игры
         /// </summary>
-        /// <returns></returns>
+        /// <returns>True, если последний сундук в списке открыт</returns>
         private bool EndGame()
         {
             return Treasure[Treasure.Count - 1].IsOpened;
         }
 
-#endregion
+#endregion game
     }
 }

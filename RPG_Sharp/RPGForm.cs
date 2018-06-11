@@ -8,8 +8,16 @@ namespace RPG_Sharp
     /// </summary>
     public partial class RPGForm : Form
     {
+        /// <summary>
+        /// Игра, в которой весь сырбор
+        /// </summary>
         private Game game;
+
         private RPGForm form;
+
+        /// <summary>
+        /// Конструктор RPGForm
+        /// </summary>
         public RPGForm()
         {
             InitializeComponent();

@@ -11,7 +11,15 @@ namespace RPG_Sharp
     /// </summary>
     interface IAttack
     {
+        /// <summary>
+        /// Наносимый урон
+        /// </summary>
         int Damage { get; set; }
+
+        /// <summary>
+        /// Персонаж бьёт противника
+        /// </summary>
+        /// <param name="opponent">Противник, получающий урон</param>
         void Attack(EntityAlive opponent);
     }
     

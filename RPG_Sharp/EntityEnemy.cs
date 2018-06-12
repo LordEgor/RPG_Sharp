@@ -16,7 +16,7 @@ namespace RPG_Sharp
         public override void SetImage()
         {
             // Число различных скинов мобов (от 0 до enemyTypes-1)
-            const int enemyTypes = 5;
+            const int enemyTypes = 7;
             int p = r.Next(0,enemyTypes);
 
             this.PictureBox.Image = Properties.Resources.ResourceManager.GetObject("Enemy" + p) as Image;
@@ -40,7 +40,7 @@ namespace RPG_Sharp
         /// </summary>
         /// <param name="game"></param>
         public EntityEnemy(Game game)
-            : base(game, 60, 7, "Участник сопротивления")
+            : base(game, 60, 7, "Чудище-страшилище")
         {
             this.SetImage();
             this.PictureBox.Name = "pbEnemy" + n.ToString();

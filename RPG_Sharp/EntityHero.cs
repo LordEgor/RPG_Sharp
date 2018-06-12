@@ -20,7 +20,7 @@ namespace RPG_Sharp
         /// </summary>
         public override void SetImage()
         {
-            this.PictureBox.Image = Properties.Resources.ResourceManager.GetObject("Hero1") as Image;
+            this.PictureBox.Image = Properties.Resources.ResourceManager.GetObject("Hero3") as Image;
             base.SetImage();
         }
 
@@ -29,7 +29,7 @@ namespace RPG_Sharp
         /// </summary>
         /// <param name="game"></param>
         public EntityHero(Game game)
-            : base(game, 250, 15, "Дарт Вейдер")
+            : base(game, 300, 20, "Ведьмак")
         {
             SetImage();
             this.PictureBox.Name = "pbHero" + n.ToString();

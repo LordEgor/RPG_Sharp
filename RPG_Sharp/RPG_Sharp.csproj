@@ -89,6 +89,7 @@
     <None Include="Resources\Enemy2.png" />
     <None Include="Resources\Enemy3.png" />
     <None Include="Resources\Enemy4.png" />
+    <None Include="Resources\epic.wav" />
     <None Include="Resources\Field.jpg" />
     <None Include="Resources\game.wav" />
     <None Include="Resources\Hero1.png" />
@@ -110,6 +111,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Hero0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Enemy5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hero3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Enemy6.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -123,6 +123,35 @@ namespace RPG_Sharp.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Enemy5 {
+            get {
+                object obj = ResourceManager.GetObject("Enemy5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Enemy6 {
+            get {
+                object obj = ResourceManager.GetObject("Enemy6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.IO.UnmanagedMemoryStream, аналогичного System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream epic {
+            get {
+                return ResourceManager.GetStream("epic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Field {
             get {
                 object obj = ResourceManager.GetObject("Field", resourceCulture);
@@ -165,6 +194,16 @@ namespace RPG_Sharp.Properties {
         internal static System.Drawing.Bitmap Hero2 {
             get {
                 object obj = ResourceManager.GetObject("Hero2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Hero3 {
+            get {
+                object obj = ResourceManager.GetObject("Hero3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

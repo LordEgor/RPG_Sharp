@@ -445,13 +445,14 @@ namespace RPG_Sharp
         private void InitializationField()
         {
             int Width = 500;
-            int Height = 600;
+            int Height = 800;
             Field = new PictureBox();
 
             Field.Name = "pbField";
             Field.Location = new Point(0, 0);
             //Field.BackgroundImage = Properties.Resources.ResourceManager.GetObject("Field") as Image;
-            Field.BackColor = Color.Tomato; // Поле усеяно кровью несозревших помидорок!!!
+            //Field.BackColor = Color.Tomato; // Поле усеяно кровью несозревших помидорок!!!
+            Field.BackColor = Color.White;
             Field.Width = Width;
             Field.Height = Height;   
 
@@ -475,7 +476,7 @@ namespace RPG_Sharp
         /// </summary>
         private void UpdateLabelHeroInfo()
         {
-            Form.labelHeroInfo.Text = "Здоровье героя " + Hero.HealthCurrent
+            Form.labelHeroInfo.Text = "Здоровье Героя " + Hero.HealthCurrent
                                 + "/" + Hero.HealthMaximum;
             Form.labelHeroInfo.Text += (Hero.HasKey) ? ". Есть ключ." : "";
         }
@@ -485,9 +486,9 @@ namespace RPG_Sharp
         /// </summary>
         private void LabelHelp()
         {
-            Form.labelHelp.Text = "Задача: Уничтожить всех врагов Дарта Вейдера в мире Майнкрафт."+ Environment.NewLine
-                                + "Остаться в живых, поднять выпавший ключ, открыть сундук и забрать сокровища Майнкрафта!" + Environment.NewLine
-                                + "Передвижение Вейдера осуществляется с помощью стрелок или WASD" + Environment.NewLine
+            Form.labelHelp.Text = "Задача: Уничтожить всех монстров в мире Майнкрафт."+ Environment.NewLine
+                                + "Остаться в живых, поднять ключ, спрятанный монстрами, открыть сундук и забрать сокровища Майнкрафта!" + Environment.NewLine
+                                + "Передвижение Героя осуществляется с помощью стрелок или WASD" + Environment.NewLine
                                 + "F - атаковать" + Environment.NewLine
                                 + "Space - взять ключ" + Environment.NewLine;
         }
@@ -531,7 +532,7 @@ namespace RPG_Sharp
             Form.Controls.Add(Field);
 
             UpdateLabelHeroInfo();
-
+            
             // Воспроизведение музыки
             PlayMusic();
         }
@@ -575,7 +576,7 @@ namespace RPG_Sharp
         {
             //if (Form.checkBoxMusic.Checked)
             {
-                Player = new SoundPlayer(Properties.Resources.ResourceManager.GetObject("game") as System.IO.Stream);
+                Player = new SoundPlayer(Properties.Resources.ResourceManager.GetObject("epic") as System.IO.Stream);
                 Player.Play();
             }
             //else

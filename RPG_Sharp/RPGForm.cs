@@ -23,6 +23,8 @@ namespace RPG_Sharp
             InitializeComponent();
             form = this;
             game = new Game(ref form);
+            Text = "В поисках сокровищ!";
+            Icon = Properties.Resources.ResourceManager.GetObject("khorne") as System.Drawing.Icon;
         }
 
         /// <summary>

@@ -189,7 +189,7 @@ namespace RPG_Sharp
                     break;
             }
 
-            //проверяем попадение героя, при изменении координат, на другие сущности
+            //проверяем попадание героя, при изменении координат, на другие сущности
             bool conformity = true;
             foreach (var e in Entities)
             {
@@ -445,7 +445,7 @@ namespace RPG_Sharp
         private void InitializationField()
         {
             int Width = 500;
-            int Height = 800;
+            int Height = 500;
             Field = new PictureBox();
 
             Field.Name = "pbField";
@@ -455,8 +455,6 @@ namespace RPG_Sharp
             Field.BackColor = Color.White;
             Field.Width = Width;
             Field.Height = Height;   
-
-            //TODO: Сделать ресайз лейблов и изменить их положение в зависимое от field.width
         }
 
         /// <summary>
@@ -487,10 +485,11 @@ namespace RPG_Sharp
         private void LabelHelp()
         {
             Form.labelHelp.Text = "Задача: Уничтожить всех монстров в мире Майнкрафт."+ Environment.NewLine
-                                + "Остаться в живых, поднять ключ, спрятанный монстрами, открыть сундук и забрать сокровища Майнкрафта!" + Environment.NewLine
+                                + "Остаться в живых, найти ключ, спрятанный монстрами," + Environment.NewLine 
+                                + "     открыть сундук и забрать сокровища Майнкрафта!" + Environment.NewLine
                                 + "Передвижение Героя осуществляется с помощью стрелок или WASD" + Environment.NewLine
                                 + "F - атаковать" + Environment.NewLine
-                                + "Space - взять ключ" + Environment.NewLine;
+                                + "Space - действие (взять/открыть)" + Environment.NewLine;
         }
 #endregion labels
 
@@ -531,6 +530,11 @@ namespace RPG_Sharp
             }
             Form.Controls.Add(Field);
 
+            // Положение контролов на форме относ. поля
+            Form.labelHeroInfo.Left = Field.Width + 50;
+            Form.labelHelp.Left = Field.Width + 50;
+            Form.textBoxLog.Left = Field.Width + 50;
+
             UpdateLabelHeroInfo();
             
             // Воспроизведение музыки
@@ -548,6 +552,7 @@ namespace RPG_Sharp
             Form.textBoxLog.Clear();
             StartGame();
         }
+
         /// <summary>
         /// Конструктор Game 
         /// </summary>
@@ -594,6 +599,6 @@ namespace RPG_Sharp
             return Treasure[Treasure.Count - 1].IsOpened;
         }
 
-#endregion game
+#endregion game launchers
     }
 }
